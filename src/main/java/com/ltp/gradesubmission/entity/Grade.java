@@ -5,7 +5,9 @@ import lombok.*;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "grade")
+@Table(name = "grade", uniqueConstraints ={
+        @UniqueConstraint(columnNames ={"student_id", "course_id"} ) // Prevents a student getting duplicate grades for the same subject
+})
 @Getter
 @Setter
 @AllArgsConstructor
